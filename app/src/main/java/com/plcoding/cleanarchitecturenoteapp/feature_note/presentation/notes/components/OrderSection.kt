@@ -52,6 +52,5 @@ fun OrderSection(
             )
             Spacer(modifier = Modifier.width(8.dp))
         }
-
     }
 }

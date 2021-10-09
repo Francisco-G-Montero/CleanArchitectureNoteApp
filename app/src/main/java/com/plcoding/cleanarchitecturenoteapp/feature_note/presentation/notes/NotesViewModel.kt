@@ -1,5 +1,6 @@
 package com.plcoding.cleanarchitecturenoteapp.feature_note.presentation.notes
 
+import android.util.Log
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
@@ -52,6 +53,7 @@ class NotesViewModel @Inject constructor(
                 _state.value = state.value.copy(
                     isOrderSectionVisible = !state.value.isOrderSectionVisible
                 )
+                Log.v("TOGGLEE",_state.value.toString())
             }
         }
     }

@@ -24,12 +24,14 @@ fun DefaultRadioButton(
         verticalAlignment = Alignment.CenterVertically
     ) {
         RadioButton(
-            selected = selected, onClick = onSelect, colors = RadioButtonDefaults.colors(
+            selected = selected,
+            onClick = onSelect,
+            colors = RadioButtonDefaults.colors(
                 selectedColor = MaterialTheme.colors.primary,
-                unselectedColor = MaterialTheme.colors.background
+                unselectedColor = MaterialTheme.colors.onBackground
             )
         )
         Spacer(modifier = Modifier.width(8.dp))
-        Text(text, style = MaterialTheme.typography.body1)
+        Text(text = text, style = MaterialTheme.typography.body1)
     }
 }

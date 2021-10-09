@@ -73,7 +73,7 @@ class AddEditNoteViewModel @Inject constructor(
             }
             is AddEditNoteEvent.ChangeTitleFocus -> {
                 _noteTitle.value = noteTitle.value.copy(
-                    isHintVisible = !event.focusState.hasFocus &&
+                    isHintVisible = !event.focusState.isFocused &&
                             noteTitle.value.text.isBlank()
                 )
             }
@@ -84,7 +84,7 @@ class AddEditNoteViewModel @Inject constructor(
             }
             is AddEditNoteEvent.ChangeContentFocus -> {
                 _noteContent.value = noteContent.value.copy(
-                    isHintVisible = !event.focusState.hasFocus &&
+                    isHintVisible = !event.focusState.isFocused &&
                             noteContent.value.text.isBlank()
                 )
             }
@@ -103,7 +103,7 @@ class AddEditNoteViewModel @Inject constructor(
                                 id = currentNoteId
                             )
                         )
-                        _eventFlow.emit(UiEvent.saveNote)
+                        _eventFlow.emit(UiEvent.SaveNote)
                     } catch (e: InvalidNoteException) {
                         _eventFlow.emit(
                             UiEvent.showSnackBar(
@@ -118,8 +118,6 @@ class AddEditNoteViewModel @Inject constructor(
 
     sealed class UiEvent {
         data class showSnackBar(val message: String) : UiEvent()
-        object saveNote : UiEvent()
-
+        object SaveNote : UiEvent()
     }
-
 }
